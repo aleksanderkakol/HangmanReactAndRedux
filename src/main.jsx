@@ -6,6 +6,9 @@ import { reducer } from './reducer/reducer.jsx';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { getDataFailed } from "./actions/actions.jsx";
+import Game from "./components/game.jsx";
+
+let errorWord = "Hangman";
 
 require('./style/main.scss');
 
@@ -23,17 +26,16 @@ class Main extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const { isLoading, isError, words } = this.props;
-        if (!this.props.isLoading) {
-            let randomNumberFromWordsArray = Math.floor(Math.random() * words.length);
-            let choosenWord = words[randomNumberFromWordsArray];
-            console.log(choosenWord.word);
-        }
+
+        let randomNumberFromWordsArray = Math.floor(Math.random() * words.length);
+        let choosenWord = !isLoading ? words[randomNumberFromWordsArray].word : errorWord;
 
         return (
             <main>
-                hi
+                <h1 className='title'>Hangman Game</h1>
+                <h2 className="lives"></h2>
+                <Game choosenWord={choosenWord} />
             </main>
         );
     }
