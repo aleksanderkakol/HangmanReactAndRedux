@@ -1,4 +1,4 @@
-const url = `https://api.datamuse.com/words?rel_jja=car`;
+const url = `https://api.datamuse.com/words?rel_jja=world`;
 
 export const GET_DATA_REQUESTED = 'GET_DATA_REQUESTED';
 export const GET_DATA_DONE = 'GET_DATA_DONE';
